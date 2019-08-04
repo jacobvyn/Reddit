@@ -9,9 +9,6 @@ import com.squareup.picasso.Transformation
  */
 interface DataBindingAdapters {
 
-    /**
-     * Displaying image by url with optional circle transformation
-     */
     @BindingAdapter(value = ["imageUrl", "placeholder", "error", "circle"], requireAll = false)
     fun loadImage(
         view: ImageView,
@@ -21,10 +18,6 @@ interface DataBindingAdapters {
         circle: Boolean
     )
 
-
-    /**
-     * Displaying image by url with optional custom transformation
-     */
     @BindingAdapter(
         value = ["imageUrl", "placeholder", "error", "transformation"],
         requireAll = false
@@ -35,5 +28,11 @@ interface DataBindingAdapters {
         placeholder: Drawable?,
         error: Drawable?,
         transformation: Transformation?
+    )
+
+    @BindingAdapter(value = ["iconRes"])
+    fun loadIcon(
+        view: ImageView,
+        iconRes: Int
     )
 }

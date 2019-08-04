@@ -10,7 +10,8 @@ class News(
     val comments: Int,
     val likes: Int,
     val subreddit: String,
-    val postTime: Long
+    val postTime: Long,
+    val icon: Int
 ) {
     val commentsString: String
         get() = "$comments"

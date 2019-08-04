@@ -1,9 +1,10 @@
 package com.jacob.reddit.service.model
 
+import com.jacob.reddit.model.Award
 import com.jacob.reddit.service.model.preview.Preview
 
 data class ChildInfo(
-    val all_awardings: List<Any>,
+    val all_awardings: List<Award>,
     val allow_live_comments: Boolean,
     val approved_at_utc: Any,
     val approved_by: Any,

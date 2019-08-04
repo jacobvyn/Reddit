@@ -35,7 +35,8 @@
                     android:layout_height="@dimen/news_avatar_size"
                     android:layout_alignParentStart="true"
                     android:layout_centerVertical="true"
-                    android:src="@drawable/ic_placeholder" />
+                    android:src="@drawable/ic_placeholder"
+                    app:iconRes="@{model.icon}" />
 
 
                 <LinearLayout

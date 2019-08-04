@@ -10,8 +10,10 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
 import com.jacob.reddit.App
+import com.jacob.reddit.R
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.disposables.Disposable
+import java.util.*
 
 fun String.base64(): String {
     return Base64.encodeToString(this.toByteArray(), Base64.NO_WRAP)
@@ -67,3 +69,17 @@ const val SECOND_MILLIS = 1000;
 const val MINUTE_MILLIS = 60 * SECOND_MILLIS
 const val HOUR_MILLIS = 60 * MINUTE_MILLIS
 const val DAY_MILLIS = 24 * HOUR_MILLIS
+private val RANDOM = Random()
+
+fun getIconRes(): Int {
+    return when (RANDOM.nextInt(8)) {
+        1 -> R.drawable.aquarius_icon
+        2 -> R.drawable.aries_icon
+        3 -> R.drawable.cancer_icon
+        4 -> R.drawable.capricorn_icon
+        5 -> R.drawable.gemini_icon
+        6 -> R.drawable.pisces_icon
+        7 -> R.drawable.sagittarius_icon
+        else -> R.drawable.gemini_icon
+    }
+}

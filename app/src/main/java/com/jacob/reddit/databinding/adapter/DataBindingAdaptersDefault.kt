@@ -37,6 +37,10 @@ class DataBindingAdaptersDefault : DataBindingAdapters {
         error?.run { builder.error(this) }
         builder.into(view)
     }
+
+    override fun loadIcon(view: ImageView, iconRes: Int) {
+        view.setImageResource(iconRes)
+    }
 }
 
 
