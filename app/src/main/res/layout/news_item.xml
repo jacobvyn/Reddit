@@ -1,128 +1,156 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/card"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginBottom="@dimen/news_item_root_margin"
-    android:elevation="@dimen/news_item_root_elevation"
-    app:cardCornerRadius="@dimen/news_item_root_card_radius">
+<layout xmlns:tools="http://schemas.android.com/tools">
 
-    <LinearLayout
-        android:id="@+id/news_item_root_child"
+    <data>
+
+        <variable
+            name="model"
+            type="com.jacob.reddit.model.News" />
+    </data>
+
+    <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="?android:selectableItemBackground"
-        android:orientation="vertical"
-        android:padding="@dimen/news_item_root_child_padding">
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/news_item_root_margin"
+        android:elevation="@dimen/news_item_root_elevation"
+        app:cardCornerRadius="@dimen/news_item_root_card_radius">
 
         <LinearLayout
+            android:id="@+id/news_root"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="match_parent"
+            android:background="?android:selectableItemBackground"
+            android:orientation="vertical"
+            android:padding="@dimen/news_item_root_child_padding">
 
-            <ImageView
-                android:id="@+id/news_item_avatar"
-                android:layout_width="@dimen/news_item_avatar_width"
-                android:layout_height="@dimen/news_item_avatar_height"
-                android:gravity="center"
-                android:src="@drawable/ic_person" />
-
-            <TextView
-                android:id="@+id/news_author"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:padding="@dimen/news_item_author_padding"
-                android:text="Schwarwenegger"
-                android:textColor="@android:color/black" />
-        </LinearLayout>
-
-        <RelativeLayout
-            android:id="@+id/news_item_main_view_layout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <ImageView
-                android:id="@+id/news_image_view"
-                android:layout_width="@dimen/news_item_main_image_view_width"
-                android:layout_height="@dimen/news_item_main_image_view_height"
-                android:layout_alignParentStart="true"
-                android:layout_gravity="center"
-                android:scaleType="fitCenter"
-                android:src="@drawable/icon_web3"
-                android:visibility="visible" />
-
-            <TextView
-                android:id="@+id/news_item_title"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/news_item_title_height"
-                android:layout_alignParentEnd="true"
-                android:layout_toEndOf="@id/news_image_view"
-                android:paddingStart="@dimen/news_item_title_padding_start"
-                android:paddingEnd="@dimen/news_item_title_padding_end"
-                android:paddingBottom="@dimen/news_item_title_padding_bottom"
-                android:text="@string/news_text_example" />
-
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <ImageView
-                android:id="@+id/news_like"
-                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:layout_centerVertical="true"
-                android:src="@drawable/ic_arrow_upward" />
+                android:gravity="center|left">
 
-            <TextView
-                android:id="@+id/news_likes_count"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_marginStart="6dp"
-                android:layout_marginEnd="6dp"
-                android:layout_toEndOf="@id/news_like"
-                android:text="777"
-                tools:ignore="RtlSymmetry" />
+                <ImageView
+                    android:id="@+id/news_item_avatar"
+                    android:layout_width="@dimen/news_avatar_size"
+                    android:layout_height="@dimen/news_avatar_size"
+                    android:src="@drawable/ic_placeholder" />
 
-            <ImageView
-                android:id="@+id/news_dislike"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_toEndOf="@id/news_likes_count"
-                android:src="@drawable/ic_arrow_downward" />
+                <TextView
+                    android:id="@+id/news_author"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingStart="@dimen/news_item_author_padding"
+                    android:text="@{model.author}"
+                    android:textColor="@android:color/black"
+                    tools:ignore="RtlSymmetry"
+                    tools:text="Schwarwenegger" />
 
-            <ImageView
-                android:id="@+id/news_item_messages"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_centerVertical="true"
-                android:src="@drawable/ic_comments" />
+                <TextView
+                    android:id="@+id/subreddit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingStart="@dimen/news_item_author_padding"
+                    android:text="@{model.subreddit}"
+                    android:textColor="@android:color/holo_blue_dark"
+                    tools:text="r/coolChanel" />
+            </LinearLayout>
 
-            <TextView
-                android:id="@+id/news_messages_count"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_toEndOf="@id/news_item_messages"
-                android:paddingStart="6dp"
-                android:text="666"
-                tools:ignore="RtlSymmetry" />
+            <RelativeLayout
+                android:id="@+id/news_item_main_view_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-            <ImageView
-                android:id="@+id/news_item_share_image_view"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_marginEnd="@dimen/news_item_share_image_view_margin_right"
-                android:src="@drawable/ic_reply" />
-        </RelativeLayout>
+                <TextView
+                    android:id="@+id/news_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginTop="6dp"
+                    android:layout_toEndOf="@id/news_image"
+                    android:paddingStart="@dimen/news_item_title_padding_start"
+                    android:paddingEnd="@dimen/news_item_title_padding_end"
+                    android:paddingBottom="@dimen/news_item_title_padding_bottom"
+                    android:text="@{model.title}"
+                    android:textStyle="bold"
+                    tools:text="@string/news_text_example" />
 
-    </LinearLayout>
-</androidx.cardview.widget.CardView>
+                <ImageView
+                    android:id="@+id/news_image"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/news_title"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:padding="6dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_broken_image"
+                    android:visibility="visible"
+                    app:imageUrl="@{model.thumbnail}" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/news_like"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ic_arrow_upward" />
+
+                <TextView
+                    android:id="@+id/news_likes_count"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="6dp"
+                    android:layout_marginEnd="6dp"
+                    android:layout_toEndOf="@id/news_like"
+                    android:text="@{model.likesString}"
+                    android:textStyle="bold"
+                    tools:ignore="RtlSymmetry"
+                    tools:text="777" />
+
+                <ImageView
+                    android:id="@+id/news_dislike"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toEndOf="@id/news_likes_count"
+                    android:src="@drawable/ic_arrow_downward" />
+
+                <ImageView
+                    android:id="@+id/news_item_messages"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ic_comments" />
+
+                <TextView
+                    android:id="@+id/news_messages_count"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toEndOf="@id/news_item_messages"
+                    android:paddingStart="6dp"
+                    android:text="@{model.commentsString}"
+                    android:textStyle="bold"
+                    tools:ignore="RtlSymmetry"
+                    tools:text="666" />
+
+                <ImageView
+                    android:id="@+id/news_item_share_image_view"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="@dimen/news_item_share_image_view_margin_right"
+                    android:src="@drawable/ic_reply" />
+            </RelativeLayout>
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</layout>

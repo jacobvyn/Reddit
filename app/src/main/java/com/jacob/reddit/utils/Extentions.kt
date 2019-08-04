@@ -37,6 +37,6 @@ fun Disposable.add(subscriptions: CompositeDisposable?) {
     subscriptions?.add(this)
 }
 
-fun ProgressBar.show(show: Boolean) {
+fun View.show(show: Boolean) {
     visibility = if (show) View.VISIBLE else View.GONE
 }

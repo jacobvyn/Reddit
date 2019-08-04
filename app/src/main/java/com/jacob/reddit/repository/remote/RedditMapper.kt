@@ -17,7 +17,8 @@ class RedditMapper :
                 data.thumbnail,
                 data.title,
                 data.num_comments,
-                data.ups
+                data.ups,
+                data.subreddit_name_prefixed
             )
             newsList.add(news)
         }

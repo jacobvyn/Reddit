@@ -2,16 +2,22 @@ package com.jacob.reddit.ui.fragments.news
 
 import android.os.Bundle
 import android.view.View
-import com.jacob.reddit.Injector
+import com.jacob.reddit.di.Injector
 import com.jacob.reddit.R
 import com.jacob.reddit.core.CoreFragment
 import com.jacob.reddit.databinding.FragmentNewsBinding
+import com.jacob.reddit.model.News
 import com.jacob.reddit.model.Page
 import com.jacob.reddit.ui.fragments.news.adapter.NewsAdapter
 import com.jacob.reddit.ui.fragments.news.presenter.NewsPresenter
 import com.jacob.reddit.utils.PRELOAD_THRESHOLD
 
-class NewsFragment : CoreFragment<NewsPresenter, FragmentNewsBinding>(), NewsView {
+class NewsFragment : CoreFragment<NewsPresenter, FragmentNewsBinding>(), NewsView,
+    NewsAdapter.OnItemClickListener {
+
+    override fun onItemClicked(news: News) {
+        showMessage(news.author + "clicked")
+    }
 
     override fun getLayoutId() = R.layout.fragment_news
 
@@ -26,7 +32,7 @@ class NewsFragment : CoreFragment<NewsPresenter, FragmentNewsBinding>(), NewsVie
     }
 
     override fun onNewsLoaded(page: Page) {
-        val adapter = NewsAdapter(PRELOAD_THRESHOLD) {
+        val adapter = NewsAdapter(this, PRELOAD_THRESHOLD) {
             presenter?.preloadNextPage()
         }
         dataBinding?.recyclerView?.adapter = adapter
