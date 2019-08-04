@@ -18,7 +18,8 @@ class RedditMapper :
                 data.title,
                 data.num_comments,
                 data.ups,
-                data.subreddit_name_prefixed
+                data.subreddit_name_prefixed,
+                data.created
             )
             newsList.add(news)
         }

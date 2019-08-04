@@ -12,9 +12,9 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/news_item_root_margin"
-        android:elevation="@dimen/news_item_root_elevation"
-        app:cardCornerRadius="@dimen/news_item_root_card_radius">
+        android:layout_marginBottom="@dimen/news_root_margin"
+        android:elevation="@dimen/news_root_elevation"
+        app:cardCornerRadius="@dimen/news_root_radius">
 
         <LinearLayout
             android:id="@+id/news_root"
@@ -22,38 +22,71 @@
             android:layout_height="match_parent"
             android:background="?android:selectableItemBackground"
             android:orientation="vertical"
-            android:padding="@dimen/news_item_root_child_padding">
+            android:padding="@dimen/news_root_child_padding">
 
-            <LinearLayout
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center|left">
 
                 <ImageView
-                    android:id="@+id/news_item_avatar"
+                    android:id="@+id/news_avatar"
                     android:layout_width="@dimen/news_avatar_size"
                     android:layout_height="@dimen/news_avatar_size"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
                     android:src="@drawable/ic_placeholder" />
 
-                <TextView
-                    android:id="@+id/news_author"
+
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:paddingStart="@dimen/news_item_author_padding"
-                    android:text="@{model.author}"
-                    android:textColor="@android:color/black"
-                    tools:ignore="RtlSymmetry"
-                    tools:text="Schwarwenegger" />
+                    android:layout_below="@id/subreddit"
+                    android:layout_toEndOf="@id/news_avatar"
+                    android:gravity="center"
+                    android:paddingStart="@dimen/news_author_padding">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Posted by "
+                        android:textColor="@color/black60" />
+
+                    <TextView
+                        android:id="@+id/news_author"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@{model.author}"
+                        android:textColor="@color/black60"
+                        tools:text="Arnold" />
+
+                    <View
+                        android:layout_width="5dp"
+                        android:layout_height="5dp"
+                        android:layout_marginStart="4dp"
+                        android:layout_marginEnd="4dp"
+                        android:background="@drawable/dot" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@{model.date}"
+                        android:textColor="@color/black60"
+                        tools:text="2h ago" />
+
+                </LinearLayout>
 
                 <TextView
                     android:id="@+id/subreddit"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:paddingStart="@dimen/news_item_author_padding"
+                    android:layout_toEndOf="@id/news_avatar"
+                    android:paddingStart="@dimen/news_author_padding"
                     android:text="@{model.subreddit}"
                     android:textColor="@android:color/holo_blue_dark"
+                    android:textStyle="bold"
                     tools:text="r/coolChanel" />
-            </LinearLayout>
+            </RelativeLayout>
 
             <RelativeLayout
                 android:id="@+id/news_item_main_view_layout"
@@ -67,9 +100,9 @@
                     android:layout_alignParentTop="true"
                     android:layout_marginTop="6dp"
                     android:layout_toEndOf="@id/news_image"
-                    android:paddingStart="@dimen/news_item_title_padding_start"
-                    android:paddingEnd="@dimen/news_item_title_padding_end"
-                    android:paddingBottom="@dimen/news_item_title_padding_bottom"
+                    android:paddingStart="@dimen/news_title_padding"
+                    android:paddingEnd="@dimen/news_title_padding"
+                    android:paddingBottom="@dimen/news_title_padding"
                     android:text="@{model.title}"
                     android:textStyle="bold"
                     tools:text="@string/news_text_example" />
@@ -143,11 +176,11 @@
                     tools:text="666" />
 
                 <ImageView
-                    android:id="@+id/news_item_share_image_view"
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
+                    android:id="@+id/news_share"
+                    android:layout_width="@dimen/news_share_size"
+                    android:layout_height="@dimen/news_share_size"
                     android:layout_alignParentEnd="true"
-                    android:layout_marginEnd="@dimen/news_item_share_image_view_margin_right"
+                    android:layout_marginEnd="@dimen/news_share_margin"
                     android:src="@drawable/ic_reply" />
             </RelativeLayout>
 

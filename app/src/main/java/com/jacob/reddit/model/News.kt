@@ -1,5 +1,7 @@
 package com.jacob.reddit.model
 
+import com.jacob.reddit.utils.formatDate
+
 class News(
     val author: String,
     val url: String,
@@ -7,11 +9,15 @@ class News(
     val title: String,
     val comments: Int,
     val likes: Int,
-    val subreddit: String
+    val subreddit: String,
+    val postTime: Long
 ) {
     val commentsString: String
         get() = "$comments"
 
     val likesString: String
-        get() = "$comments"
+        get() = "$likes"
+
+    val date: String
+        get() = formatDate(postTime)
 }
