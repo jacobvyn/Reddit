@@ -8,6 +8,7 @@ import com.jacob.reddit.core.CoreFragment
 import com.jacob.reddit.databinding.FragmentNewsBinding
 import com.jacob.reddit.model.News
 import com.jacob.reddit.model.Page
+import com.jacob.reddit.ui.activities.MainActivity
 import com.jacob.reddit.ui.fragments.news.adapter.NewsAdapter
 import com.jacob.reddit.ui.fragments.news.presenter.NewsPresenter
 import com.jacob.reddit.utils.PRELOAD_THRESHOLD
@@ -16,7 +17,8 @@ class NewsFragment : CoreFragment<NewsPresenter, FragmentNewsBinding>(), NewsVie
     NewsAdapter.OnItemClickListener {
 
     override fun onItemClicked(news: News) {
-        showMessage(news.author + "clicked")
+        val host = activity
+        if (host is MainActivity ) host.showDetailsView(news.permalink)
     }
 
     override fun getLayoutId() = R.layout.fragment_news

@@ -19,9 +19,13 @@ fun String.base64(): String {
     return Base64.encodeToString(this.toByteArray(), Base64.NO_WRAP)
 }
 
-fun AppCompatActivity.addFragment(fragment: Fragment, @IdRes frameId: Int) {
+fun AppCompatActivity.addFragment(
+    fragment: Fragment, @IdRes frameId: Int,
+    addToBackStack: Boolean = false
+) {
     supportFragmentManager.transact {
-        replace(frameId, fragment)
+        add(frameId, fragment)
+        if (addToBackStack) addToBackStack("")
     }
 }
 

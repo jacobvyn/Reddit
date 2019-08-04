@@ -3,6 +3,7 @@ package com.jacob.reddit.ui.activities
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.jacob.reddit.R
+import com.jacob.reddit.ui.fragments.details.DetailsFragment
 import com.jacob.reddit.utils.addFragment
 import com.jacob.reddit.ui.fragments.news.NewsFragment
 import com.jacob.reddit.utils.show
@@ -18,5 +19,9 @@ class MainActivity : AppCompatActivity() {
 
     fun showProgress(show: Boolean) {
         progress_bar.show(show)
+    }
+
+    fun showDetailsView(url: String) {
+        addFragment(DetailsFragment.newInstance(url), R.id.container, true)
     }
 }
