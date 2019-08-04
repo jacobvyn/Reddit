@@ -46,4 +46,6 @@ abstract class CoreFragment<P : CorePresenter<*>, V : ViewDataBinding> : Fragmen
         super.onDestroyView()
         presenter?.detachView()
     }
+
+    override fun onBackPress() = false
 }
