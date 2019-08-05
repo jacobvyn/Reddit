@@ -22,7 +22,7 @@
             android:layout_height="match_parent"
             android:background="?android:selectableItemBackground"
             android:orientation="vertical"
-            android:padding="@dimen/news_root_child_padding">
+            android:padding="@dimen/news_root_padding">
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -50,7 +50,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Posted by "
+                        android:text="@string/posted_by"
                         android:textColor="@color/black60" />
 
                     <TextView
@@ -59,13 +59,13 @@
                         android:layout_height="wrap_content"
                         android:text="@{model.author}"
                         android:textColor="@color/black60"
-                        tools:text="Arnold" />
+                        tools:text="@string/author_example" />
 
                     <View
-                        android:layout_width="5dp"
-                        android:layout_height="5dp"
-                        android:layout_marginStart="4dp"
-                        android:layout_marginEnd="4dp"
+                        android:layout_width="@dimen/separator_size"
+                        android:layout_height="@dimen/separator_size"
+                        android:layout_marginStart="@dimen/separator_margin"
+                        android:layout_marginEnd="@dimen/separator_margin"
                         android:background="@drawable/dot" />
 
                     <TextView
@@ -73,7 +73,7 @@
                         android:layout_height="wrap_content"
                         android:text="@{model.date}"
                         android:textColor="@color/black60"
-                        tools:text="2h ago" />
+                        tools:text="@string/timestamp_example" />
 
                 </LinearLayout>
 
@@ -86,11 +86,11 @@
                     android:text="@{model.subreddit}"
                     android:textColor="@android:color/holo_blue_dark"
                     android:textStyle="bold"
-                    tools:text="r/coolChanel" />
+                    tools:text="@string/subreddit_example"
+                    tools:ignore="RtlSymmetry" />
             </RelativeLayout>
 
             <RelativeLayout
-                android:id="@+id/news_item_main_view_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
@@ -99,7 +99,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_alignParentTop="true"
-                    android:layout_marginTop="6dp"
+                    android:layout_marginTop="@dimen/news_title_margin"
                     android:layout_toEndOf="@id/news_image"
                     android:paddingStart="@dimen/news_title_padding"
                     android:paddingEnd="@dimen/news_title_padding"
@@ -115,7 +115,7 @@
                     android:layout_below="@id/news_title"
                     android:layout_alignParentStart="true"
                     android:layout_alignParentTop="true"
-                    android:padding="6dp"
+                    android:padding="@dimen/news_image_padding"
                     android:scaleType="fitCenter"
                     android:src="@drawable/ic_broken_image"
                     android:visibility="visible"
@@ -136,12 +136,12 @@
                     android:src="@drawable/ic_arrow_upward" />
 
                 <TextView
-                    android:id="@+id/news_likes_count"
+                    android:id="@+id/news_likes"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
-                    android:layout_marginStart="6dp"
-                    android:layout_marginEnd="6dp"
+                    android:layout_marginStart="@dimen/news_likes_margin"
+                    android:layout_marginEnd="@dimen/news_likes_margin"
                     android:layout_toEndOf="@id/news_like"
                     android:text="@{model.likesString}"
                     android:textStyle="bold"
@@ -153,7 +153,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
-                    android:layout_toEndOf="@id/news_likes_count"
+                    android:layout_toEndOf="@id/news_likes"
                     android:src="@drawable/ic_arrow_downward" />
 
                 <ImageView
@@ -165,12 +165,12 @@
                     android:src="@drawable/ic_comments" />
 
                 <TextView
-                    android:id="@+id/news_messages_count"
+                    android:id="@+id/news_comments"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:layout_toEndOf="@id/news_item_messages"
-                    android:paddingStart="6dp"
+                    android:paddingStart="@dimen/news_comments_margin"
                     android:text="@{model.commentsString}"
                     android:textStyle="bold"
                     tools:ignore="RtlSymmetry"
@@ -182,7 +182,7 @@
                     android:layout_height="@dimen/news_share_size"
                     android:layout_alignParentEnd="true"
                     android:layout_marginEnd="@dimen/news_share_margin"
-                    android:src="@drawable/ic_reply" />
+                    android:src="@drawable/ic_share_black_24dp" />
             </RelativeLayout>
 
         </LinearLayout>

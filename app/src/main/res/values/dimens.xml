@@ -3,12 +3,18 @@
     <dimen name="news_root_elevation">6dp</dimen>
     <dimen name="news_root_margin">6dp</dimen>
     <dimen name="news_root_radius">0dp</dimen>
-    <dimen name="news_root_child_padding">12dp</dimen>
+    <dimen name="news_root_padding">12dp</dimen>
     <dimen name="news_avatar_size">35dp</dimen>
     <dimen name="news_author_padding">8dp</dimen>
     <dimen name="news_title_padding">15dp</dimen>
     <dimen name="news_share_margin">5dp</dimen>
     <dimen name="text_16sp">16sp</dimen>
     <dimen name="dot_size">5dp</dimen>
-    <dimen name="news_share_size">24dp</dimen>
+    <dimen name="news_share_size">20dp</dimen>
+    <dimen name="separator_size">5dp</dimen>
+    <dimen name="separator_margin">4dp</dimen>
+    <dimen name="news_title_margin">6dp</dimen>
+    <dimen name="news_image_padding">6dp</dimen>
+    <dimen name="news_likes_margin">6dp</dimen>
+    <dimen name="news_comments_margin">6dp</dimen>
 </resources>

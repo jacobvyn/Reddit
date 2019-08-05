@@ -2,5 +2,9 @@
     <string name="app_name">Reddit</string>
     <string name="news_text_example">A seemingly indestructible android is sent from 2029</string>
     <string name="loading">Loading …</string>
+    <string name="posted_by">Posted by</string>
+    <string name="author_example">Arnold</string>
+    <string name="timestamp_example">2h ago</string>
+    <string name="subreddit_example">r/coolChanel</string>
 
 </resources>

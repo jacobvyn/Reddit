@@ -39,7 +39,7 @@ abstract class CoreFragment<P : CorePresenter<*>, V : ViewDataBinding> : Fragmen
 
     override fun showProgress(show: Boolean) {
         val host = activity
-        if (host is MainActivity) host.showProgress(show)
+        if (host is CoreActivity) host.showProgress(show)
     }
 
     override fun onDestroyView() {

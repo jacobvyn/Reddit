@@ -6,8 +6,6 @@ import com.jacob.reddit.core.CoreActivity
 import com.jacob.reddit.ui.fragments.details.DetailsFragment
 import com.jacob.reddit.ui.fragments.news.NewsFragment
 import com.jacob.reddit.utils.addFragment
-import com.jacob.reddit.utils.show
-import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : CoreActivity() {
 
@@ -15,10 +13,6 @@ class MainActivity : CoreActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         addFragment(NewsFragment(), R.id.container)
-    }
-
-    fun showProgress(show: Boolean) {
-        progress_bar.show(show)
     }
 
     fun showDetailsView(url: String) {

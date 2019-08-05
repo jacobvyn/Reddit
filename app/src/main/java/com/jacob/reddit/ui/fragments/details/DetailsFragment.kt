@@ -9,6 +9,7 @@ import com.jacob.reddit.R
 import com.jacob.reddit.core.CoreFragment
 import com.jacob.reddit.databinding.FragmentDetailsBinding
 import com.jacob.reddit.di.Injector
+import kotlinx.android.synthetic.main.fragment_details.*
 
 class DetailsFragment : CoreFragment<DetailsPresenter, FragmentDetailsBinding>(), DetailsView,
     BaseWebView.ProgressListener {
@@ -24,8 +25,8 @@ class DetailsFragment : CoreFragment<DetailsPresenter, FragmentDetailsBinding>()
         super.onViewCreated(view, savedInstanceState)
         val url = arguments?.getString(URL_KEY)
         if (url == null) activity?.onBackPressed()
-        dataBinding?.webview?.progressListener = this
-        dataBinding?.webview?.loadUrl(url)
+        webview.progressListener = this
+        webview.loadUrl(url)
     }
 
     companion object {
@@ -38,7 +39,6 @@ class DetailsFragment : CoreFragment<DetailsPresenter, FragmentDetailsBinding>()
                 }
             }
         }
-
     }
 
     override fun onCreateAnimation(transit: Int, enter: Boolean, nextAnim: Int): Animation {
@@ -52,9 +52,8 @@ class DetailsFragment : CoreFragment<DetailsPresenter, FragmentDetailsBinding>()
     }
 
     override fun onBackPress(): Boolean {
-        val webView = dataBinding?.webview!!
-        return if (webView.canGoBack()) {
-            webView.goBack()
+        return if (webview.canGoBack()) {
+            webview.goBack()
             true
         } else false
     }
