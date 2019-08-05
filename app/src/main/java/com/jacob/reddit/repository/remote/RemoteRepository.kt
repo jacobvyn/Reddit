@@ -1,6 +1,6 @@
 package com.jacob.reddit.repository.remote
 
-import com.jacob.reddit.model.Page
+import com.jacob.reddit.repository.model.Page
 import io.reactivex.Single
 
 interface RemoteRepository {

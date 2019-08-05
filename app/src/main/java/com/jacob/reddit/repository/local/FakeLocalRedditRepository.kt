@@ -1,7 +1,7 @@
 package com.jacob.reddit.repository.local
 
-import com.jacob.reddit.model.Page
-import com.jacob.reddit.model.errors.PageNotFoundException
+import com.jacob.reddit.repository.model.Page
+import com.jacob.reddit.repository.model.errors.PageNotFoundException
 import io.reactivex.Single
 
 class FakeLocalRedditRepository : LocalRepository {

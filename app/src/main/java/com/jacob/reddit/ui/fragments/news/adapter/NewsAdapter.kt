@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.annotation.NonNull
 import androidx.recyclerview.widget.RecyclerView
 import com.jacob.reddit.databinding.NewsItemBinding
-import com.jacob.reddit.model.News
+import com.jacob.reddit.repository.model.News
 
 class NewsAdapter(
     private val listener: OnItemClickListener,

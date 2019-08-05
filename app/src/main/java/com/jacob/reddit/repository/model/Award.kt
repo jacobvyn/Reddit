@@ -1,4 +1,4 @@
-package com.jacob.reddit.model
+package com.jacob.reddit.repository.model
 
 data class Award(
     val award_type: String,

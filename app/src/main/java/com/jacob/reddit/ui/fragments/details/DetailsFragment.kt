@@ -9,6 +9,8 @@ import com.jacob.reddit.R
 import com.jacob.reddit.core.CoreFragment
 import com.jacob.reddit.databinding.FragmentDetailsBinding
 import com.jacob.reddit.di.Injector
+import com.jacob.reddit.core.BaseWebView
+import com.jacob.reddit.ui.fragments.details.presenter.DetailsPresenter
 import kotlinx.android.synthetic.main.fragment_details.*
 
 class DetailsFragment : CoreFragment<DetailsPresenter, FragmentDetailsBinding>(), DetailsView,

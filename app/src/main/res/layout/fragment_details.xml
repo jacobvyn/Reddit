@@ -6,7 +6,7 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <com.jacob.reddit.ui.fragments.details.BaseWebView
+        <com.jacob.reddit.core.BaseWebView
             android:id="@+id/webview"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />

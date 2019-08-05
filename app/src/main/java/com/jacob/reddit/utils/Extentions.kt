@@ -61,7 +61,7 @@ fun formatDate(timeVal: Long): String {
     return when {
         diff < MINUTE_MILLIS -> "just now"
         diff < 2 * MINUTE_MILLIS -> "a minute ago"
-        diff < 50 * MINUTE_MILLIS -> "${diff / MINUTE_MILLIS} min ago"
+        diff < 59 * MINUTE_MILLIS -> "${diff / MINUTE_MILLIS} min ago"
         diff < 90 * MINUTE_MILLIS -> "an hour ago"
         diff < 24 * HOUR_MILLIS -> "${diff / HOUR_MILLIS}h ago"
         diff < 48 * HOUR_MILLIS -> "yesterday"

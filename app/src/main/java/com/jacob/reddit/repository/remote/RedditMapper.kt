@@ -1,7 +1,7 @@
 package com.jacob.reddit.repository.remote
 
-import com.jacob.reddit.model.News
-import com.jacob.reddit.model.Page
+import com.jacob.reddit.repository.model.News
+import com.jacob.reddit.repository.model.Page
 import com.jacob.reddit.service.model.RedditResponse
 import com.jacob.reddit.utils.REDDIT_BASE_URL
 import com.jacob.reddit.utils.getIconRes

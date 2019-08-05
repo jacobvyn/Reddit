@@ -1,6 +1,6 @@
 package com.jacob.reddit.repository
 
-import com.jacob.reddit.model.Page
+import com.jacob.reddit.repository.model.Page
 import com.jacob.reddit.repository.local.LocalRepository
 import com.jacob.reddit.repository.remote.RemoteRepository
 import com.jacob.reddit.utils.NEWS_LIMIT_PER_PAGE

@@ -1,4 +1,4 @@
-package com.jacob.reddit.model.errors
+package com.jacob.reddit.repository.model.errors
 
 import java.io.IOException
 

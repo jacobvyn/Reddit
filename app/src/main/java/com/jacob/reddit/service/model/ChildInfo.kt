@@ -1,6 +1,6 @@
 package com.jacob.reddit.service.model
 
-import com.jacob.reddit.model.Award
+import com.jacob.reddit.repository.model.Award
 import com.jacob.reddit.service.model.preview.Preview
 
 data class ChildInfo(

@@ -6,8 +6,8 @@ import com.jacob.reddit.di.Injector
 import com.jacob.reddit.R
 import com.jacob.reddit.core.CoreFragment
 import com.jacob.reddit.databinding.FragmentNewsBinding
-import com.jacob.reddit.model.News
-import com.jacob.reddit.model.Page
+import com.jacob.reddit.repository.model.News
+import com.jacob.reddit.repository.model.Page
 import com.jacob.reddit.ui.activities.MainActivity
 import com.jacob.reddit.ui.fragments.news.adapter.NewsAdapter
 import com.jacob.reddit.ui.fragments.news.presenter.NewsPresenter

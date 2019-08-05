@@ -4,7 +4,7 @@ import com.google.gson.FieldNamingPolicy
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.jacob.reddit.BuildConfig
-import com.jacob.reddit.model.errors.NoInternetException
+import com.jacob.reddit.repository.model.errors.NoInternetException
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit

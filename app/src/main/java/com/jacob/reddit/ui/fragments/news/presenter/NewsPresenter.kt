@@ -1,7 +1,7 @@
 package com.jacob.reddit.ui.fragments.news.presenter
 
 import com.jacob.reddit.core.CorePresenter
-import com.jacob.reddit.model.Page
+import com.jacob.reddit.repository.model.Page
 import com.jacob.reddit.repository.RedditRepository
 import com.jacob.reddit.ui.fragments.news.NewsView
 import com.jacob.reddit.utils.add

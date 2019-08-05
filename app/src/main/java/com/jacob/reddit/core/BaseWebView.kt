@@ -1,4 +1,4 @@
-package com.jacob.reddit.ui.fragments.details
+package com.jacob.reddit.core
 
 import android.annotation.SuppressLint
 import android.content.Context
