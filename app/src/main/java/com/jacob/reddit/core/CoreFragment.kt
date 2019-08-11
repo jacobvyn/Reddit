@@ -8,7 +8,6 @@ import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
-import com.jacob.reddit.ui.activities.MainActivity
 
 abstract class CoreFragment<P : CorePresenter<*>, V : ViewDataBinding> : Fragment(), CoreView {
     var presenter: P? = null

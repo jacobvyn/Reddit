@@ -5,6 +5,7 @@ import android.net.ConnectivityManager
 import android.util.Base64
 import android.view.View
 import androidx.annotation.IdRes
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
@@ -85,5 +86,24 @@ fun getIconRes(): Int {
         6 -> R.drawable.pisces_icon
         7 -> R.drawable.sagittarius_icon
         else -> R.drawable.gemini_icon
+    }
+}
+
+fun Fragment.showDialogWithAction(
+    title: Int,
+    positiveTitle: Int,
+    positiveAction: () -> Unit
+) {
+    context?.let {
+        val builder = AlertDialog.Builder(context!!)
+
+        with(builder) {
+            setMessage(title)
+            setCancelable(false)
+            setPositiveButton(positiveTitle) { _, _ ->
+                positiveAction.invoke()
+            }
+        }
+        builder.create().show()
     }
 }

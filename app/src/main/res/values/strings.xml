@@ -6,5 +6,7 @@
     <string name="author_example">Arnold</string>
     <string name="timestamp_example">2h ago</string>
     <string name="subreddit_example">r/coolChanel</string>
+    <string name="no_internet_message">No internet connection, please check it and try later</string>
+    <string name="ok_button">Ok</string>
 
 </resources>

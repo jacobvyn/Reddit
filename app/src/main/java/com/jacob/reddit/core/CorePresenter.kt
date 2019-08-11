@@ -15,7 +15,7 @@ abstract class CorePresenter<V : CoreView> : KoinComponent {
         subscriptions = CompositeDisposable()
     }
 
-    fun onError(error: Throwable) {
+   open fun onError(error: Throwable) {
         Timber.e(error)
         view?.let {
             it.showProgress(false)

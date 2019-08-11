@@ -2,7 +2,7 @@ package com.jacob.reddit.ui.fragments.news.presenter
 
 import com.jacob.reddit.core.CorePresenter
 import com.jacob.reddit.repository.model.Page
-import com.jacob.reddit.repository.RedditRepository
+import com.jacob.reddit.repository.model.errors.NoInternetException
 import com.jacob.reddit.ui.fragments.news.NewsView
 import com.jacob.reddit.utils.add
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -40,6 +40,12 @@ class NewsPresenter : CorePresenter<NewsView>() {
                 consumer(it)
             }, this::onError)
             .add(subscriptions)
+    }
+
+    override fun onError(error: Throwable) {
+        if (error is NoInternetException) {
+          view?.showDialog()
+        } else super.onError(error)
     }
 
 

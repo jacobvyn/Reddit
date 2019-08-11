@@ -11,13 +11,14 @@ import com.jacob.reddit.ui.activities.MainActivity
 import com.jacob.reddit.ui.fragments.news.adapter.NewsAdapter
 import com.jacob.reddit.ui.fragments.news.presenter.NewsPresenter
 import com.jacob.reddit.utils.PRELOAD_THRESHOLD
+import com.jacob.reddit.utils.showDialogWithAction
 
 class NewsFragment : CoreFragment<NewsPresenter, FragmentNewsBinding>(), NewsView,
     NewsAdapter.OnItemClickListener {
 
     override fun onItemClicked(news: News) {
         val host = activity
-        if (host is MainActivity ) host.showDetailsView(news.permalink)
+        if (host is MainActivity) host.showDetailsView(news.permalink)
     }
 
     override fun getLayoutId() = R.layout.fragment_news
@@ -43,5 +44,12 @@ class NewsFragment : CoreFragment<NewsPresenter, FragmentNewsBinding>(), NewsVie
     override fun onNewsPreloaded(page: Page) {
         val adapter = dataBinding?.recyclerView?.adapter as NewsAdapter
         adapter.addToTail(page.newsList)
+    }
+
+    override fun showDialog() {
+        showDialogWithAction(
+            R.string.no_internet_message,
+            R.string.ok_button
+        ) { presenter!!.getTopNews() }
     }
 }

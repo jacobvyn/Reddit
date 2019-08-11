@@ -6,4 +6,5 @@ import com.jacob.reddit.repository.model.Page
 interface NewsView : CoreView {
     fun onNewsPreloaded(page: Page)
     fun onNewsLoaded(page: Page)
+    fun showDialog()
 }
