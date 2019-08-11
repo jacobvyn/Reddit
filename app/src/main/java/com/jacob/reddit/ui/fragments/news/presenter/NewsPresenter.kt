@@ -8,7 +8,7 @@ import com.jacob.reddit.utils.add
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 
-class NewsPresenter(repository: RedditRepository) : CorePresenter<NewsView>(repository) {
+class NewsPresenter : CorePresenter<NewsView>() {
     private var state = State.IDLE
     private lateinit var currentToken: String
 

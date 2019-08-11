@@ -6,10 +6,9 @@ import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import androidx.fragment.app.Fragment
 import com.jacob.reddit.R
+import com.jacob.reddit.core.BaseWebView
 import com.jacob.reddit.core.CoreFragment
 import com.jacob.reddit.databinding.FragmentDetailsBinding
-import com.jacob.reddit.di.Injector
-import com.jacob.reddit.core.BaseWebView
 import com.jacob.reddit.ui.fragments.details.presenter.DetailsPresenter
 import kotlinx.android.synthetic.main.fragment_details.*
 
@@ -17,7 +16,7 @@ class DetailsFragment : CoreFragment<DetailsPresenter, FragmentDetailsBinding>()
     BaseWebView.ProgressListener {
     override fun getLayoutId() = R.layout.fragment_details
 
-    override fun createPresenter() = DetailsPresenter(Injector.injectRepository())
+    override fun createPresenter() = DetailsPresenter()
 
     override fun onViewReady() {
         presenter?.onViewCreated(this)

@@ -2,7 +2,6 @@ package com.jacob.reddit.ui.fragments.news
 
 import android.os.Bundle
 import android.view.View
-import com.jacob.reddit.di.Injector
 import com.jacob.reddit.R
 import com.jacob.reddit.core.CoreFragment
 import com.jacob.reddit.databinding.FragmentNewsBinding
@@ -23,7 +22,7 @@ class NewsFragment : CoreFragment<NewsPresenter, FragmentNewsBinding>(), NewsVie
 
     override fun getLayoutId() = R.layout.fragment_news
 
-    override fun createPresenter() = NewsPresenter(Injector.injectRepository())
+    override fun createPresenter() = NewsPresenter()
 
     override fun onViewReady() {
         presenter?.onViewCreated(this)

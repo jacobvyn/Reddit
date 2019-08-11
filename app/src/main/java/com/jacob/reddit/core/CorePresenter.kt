@@ -2,9 +2,12 @@ package com.jacob.reddit.core
 
 import com.jacob.reddit.repository.RedditRepository
 import io.reactivex.disposables.CompositeDisposable
+import org.koin.core.KoinComponent
+import org.koin.core.inject
 import timber.log.Timber
 
-abstract class CorePresenter<V : CoreView>(val repository: RedditRepository) {
+abstract class CorePresenter<V : CoreView> : KoinComponent {
+    val repository: RedditRepository by inject()
     var view: V? = null
     var subscriptions: CompositeDisposable? = null
 
